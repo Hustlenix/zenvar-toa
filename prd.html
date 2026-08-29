@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRD-01 · Zenvar Product Requirements</title>
+<meta name="description" content="The product requirements drawing for Zenvar. Mission, market, services, team, sales flow, delivery workflow and roadmap. Working foundation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Minor, PRD-page-only helpers built on the existing design tokens. */
+  .prd-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,4vw,3.8rem);margin-top:2.5rem}
+  .prd-block{border:1px solid var(--ink);background:var(--paper);padding:1.6rem clamp(1.2rem,3vw,2rem);margin-bottom:2rem}
+  .prd-block-full{grid-column:1/-1}
+  .prd-list{list-style:none}
+  .prd-list li{display:flex;gap:1rem;align-items:baseline;padding:.7rem 0;border-bottom:1px solid var(--rule)}
+  .prd-list li:last-child{border-bottom:none}
+  .prd-n{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;color:var(--accent);flex-shrink:0;min-width:30px}
+  .prd-list p{color:var(--ink)}
+  .prd-table{width:100%;border-collapse:collapse;border:1px solid var(--ink)}
+  .prd-table th{font-family:var(--mono);font-weight:500;font-size:.62rem;letter-spacing:.2em;text-align:left;color:var(--paper);background:var(--ink);padding:.5rem .7rem}
+  .prd-table td{padding:.6rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top;font-size:.95rem}
+  .prd-table tr:last-child td{border-bottom:none}
+  .prd-table tbody tr{transition:background .15s}
+  .prd-table tbody tr:hover{background:var(--paper-2)}
+  .kicker{font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem}
+  .block-para{margin-bottom:1rem;max-width:66ch}
+  .block-para:last-child{margin-bottom:0}
+  .pill{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--ink);border:1px solid var(--rule-strong);padding:.2rem .55rem;margin:.25rem .3rem .25rem 0}
+  .road{list-style:none}
+  .road li{display:flex;gap:1.2rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid var(--rule)}
+  .road-n{font-family:var(--disp);font-weight:700;font-size:2rem;line-height:1;color:transparent;-webkit-text-stroke:1px var(--ink);min-width:64px}
+  .road li:hover .road-n{color:var(--accent)}
+  .road h4{font-family:var(--disp);font-weight:600;font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase}
+  .road p{color:var(--ink-2);font-size:.92rem;margin-top:.15rem}
+  .qt{border-left:4px solid var(--accent);padding-left:1.1rem;margin:1.4rem 0;color:var(--ink)}
+  .qt p{font-size:1.05rem;font-style:italic}
+  .striped{margin-top:1.1rem}
+  .striped .prd-list li{padding:.55rem 0}
+  @media(max-width:900px){.prd-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<span class="regmark rm-tl" aria-hidden="true"></span>
+<span class="regmark rm-tr" aria-hidden="true"></span>
+<span class="regmark rm-bl" aria-hidden="true"></span>
+<span class="regmark rm-br" aria-hidden="true"></span>
+
+<nav class="plate-nav" aria-label="Section Navigation">
+  <a class="nav-doc" href="index.html">← TOA-01</a>
+  <div class="nav-nums">
+    <a href="#overview">01</a>
+    <a href="#market">02</a>
+    <a href="#services">03</a>
+    <a href="#team">04</a>
+    <a href="#pipeline">05</a>
+    <a href="#delivery">06</a>
+    <a href="#roadmap">07</a>
+  </div>
+  <a class="nav-sign" href="index.html#approvals">TOA-01 INDEX</a>
+</nav>
+
+<main id="main" class="wrap" style="max-width:1180px">
+  <header class="role-hero wipe">
+    <div class="role-crumb">
+      <a href="index.html">Zenvar</a> / <span>PRD-01 · Product Requirements</span>
+    </div>
+    <div class="role-title-grid">
+      <div class="role-name-block">
+        <p class="role-item-tag">ZENVAR · PRODUCT REQUIREMENTS DOCUMENT</p>
+        <h1 class="role-name">Product<br>Requirements</h1>
+        <p class="role-full-title">Websites + AI + Automation + Content for business growth</p>
+      </div>
+      <div class="role-metric-highlight">
+        <span class="rm-k">Working Foundation</span>
+        <span class="rm-v">Websites first, then AI &amp; automation</span>
+      </div>
+    </div>
+    <div class="role-meta-row">
+      <div class="cell"><span class="k">DOC REF</span><span class="v">PRD-01</span></div>
+      <div class="cell"><span class="k">DOMAIN</span><span class="v">zenvar.co</span></div>
+      <div class="cell"><span class="k">STATUS</span><span class="v" style="color:var(--accent)">EARLY-STAGE · PRE-REVENUE</span></div>
+      <div class="cell"><span class="k">VERSION</span><span class="v">1.0 · AUG 2026</span></div>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="sec" id="overview">
+    <div class="sec-num" aria-hidden="true">01</div>
+    <div class="sec-head">
+      <h2 class="sec-title wipe">Overview &amp; Mission</h2>
+      <span class="head-note">WHAT ZENVAR IS BUILT TO DO</span>
+    </div>
+    <p class="lede wipe">Zenvar is an early-stage digital services and automation business, built by a student-led team. Its mission is to help suitable local businesses improve their digital presence and operations.</p>
+    <div class="prd-grid" style="margin-top:2rem">
+      <div class="prd-block-full prd-block" style="grid-column:1/-1">
+        <p class="spec-block-h" style="border-bottom:none;margin-bottom:0"><span>Mission</span><span class="spec-tag">CORE</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">01</span><p>High-converting websites for local businesses</p></li>
+          <li><span class="prd-n">02</span><p>AI agents that handle enquiries, qualification and repetitive communication</p></li>
+          <li><span class="prd-n">03</span><p>Business automation — lead capture, follow-up, and internal workflow systems</p></li>
+          <li><span class="prd-n">04</span><p>Video and reel editing, captions, and content support</p></li>
+          <li><span class="prd-n">05</span><p>Content strategy that turns output into reach</p></li>
+        </div>
+      </div>
+    </div>
+    <div class="prd-block" style="margin-top:2rem">
+      <p class="spec-block-h"><span>Vision</span><span class="spec-tag">POSITIONING</span></p>
+      <p class="block-para">Build Zenvar into a capable, system-driven digital growth company that helps businesses look more professional online, generate and capture more leads, save time through automation, improve customer communication, and use AI practically in their operations.</p>
+      <p class="block-para" style="font-family:var(--mono);font-size:.9rem;color:var(--accent)">ZENVAR = WEBSITES + AI + AUTOMATION + CONTENT FOR BUSINESS GROWTH</p>
+      <p class="block-para">Long-term, the company should move from selling individual services to solving higher-value business problems.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 PROBLEM / MARKET ============ -->
+  <section class="sec" id="market">
+    <div class="sec-num" aria-hidden="true">02</div>
+    <div class="sec-head">
+      <h2 class="sec-title wipe">Problem &amp; Target Market</h2>
+      <span class="head-note">WHERE THE GAP IS</span>
+    </div>
+    <div class="prd-grid">
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Client Problems</span><span class="spec-tag">PROBLEM</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">01</span><p>Outdated or missing websites</p></li>
+          <li><span class="prd-n">02</span><p>Weak online credibility and poor lead capture</p></li>
+          <li><span class="prd-n">03</span><p>Manual, repetitive business processes</p></li>
+          <li><span class="prd-n">04</span><p>Slow customer responses and lack of automation</p></li>
+          <li><span class="prd-n">05</span><p>Inconsistent social media content</p></li>
+          <li><span class="prd-n">06</span><p>Limited internal technical capability</p></li>
+        </div>
+      </div>
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Team Challenge</span><span class="spec-tag">INTERNAL</span></p>
+        <p class="block-para">Zenvar faces an early-stage operational challenge: a largely beginner team needing clear systems for deciding what to do, learning execution, generating leads, selling services, delivering projects, and managing clients.</p>
+        <p class="block-para" style="margin-top:1rem">The answer is <strong>structure over guesswork</strong>: defined systems, defined owners, and defined weekly outcomes.</p>
+      </div>
+    </div>
+    <div class="prd-grid" style="margin-top:2rem">
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Primary Market</span><span class="spec-tag">FIT</span></p>
+        <p class="block-para">Local and regional businesses that are established enough to have real revenue, large enough to value professional services, and small or medium enough that decision-makers are reachable.</p>
+        <div class="kicker" style="margin-top:.6rem">IDEAL CLIENT PROFILE</div>
+        <div class="prd-list">
+          <li><span class="prd-n">·</span><p>Existing customer base</p></li>
+          <li><span class="prd-n">·</span><p>Weak or outdated website</p></li>
+          <li><span class="prd-n">·</span><p>Active or somewhat active online presence</p></li>
+          <li><span class="prd-n">·</span><p>Clear service or product offering</p></li>
+          <li><span class="prd-n">·</span><p>Reachable owner, manager or decision-maker</p></li>
+          <li><span class="prd-n">·</span><p>Obvious opportunity to improve conversion or credibility</p></li>
+        </div>
+      </div>
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Avoid Initially</span><span class="spec-tag" style="color:var(--ink-2)">NOT YET</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">01</span><p>Very tiny businesses with extremely limited budgets</p></li>
+          <li><span class="prd-n">02</span><p>Large enterprises with long procurement cycles</p></li>
+          <li><span class="prd-n">03</span><p>Businesses requiring highly complex enterprise software</p></li>
+        </div>
+        <p class="block-para" style="margin-top:1rem">The immediate commercial focus is website sales for local businesses established enough to respond professionally, understand the value of digital services, and pay without excessive price resistance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 SERVICES ============ -->
+  <section class="sec" id="services">
+    <div class="sec-num" aria-hidden="true">03</div>
+    <div class="sec-head">
+      <h2 class="sec-title wipe">Service Offerings</h2>
+      <span class="head-note">FOUR LINES · ONE TEAM</span>
+    </div>
+    <div class="prd-grid">
+      <div class="prd-block">
+        <p class="spec-block-h"><span>5.1 · Website Development</span><span class="spec-tag">PRIMARY OFFER</span></p>
+        <p class="block-para">The strongest current entry offer — easy to understand, easy to demonstrate, and deliverable by the team today.</p>
+        <div class="prd-list">
+          <li><span class="prd-n">·</span><p>Modern business website, mobile-responsive</p></li>
+          <li><span class="prd-n">·</span><p>Clear service pages</p></li>
+          <li><span class="prd-n">·</span><p>Lead and contact forms</p></li>
+          <li><span class="prd-n">·</span><p>WhatsApp and contact integration</p></li>
+          <li><span class="prd-n">·</span><p>Basic SEO structure and clear calls-to-action</p></li>
+          <li><span class="prd-n">·</span><p>Trust elements: testimonials, projects, services, business info</p></li>
+        </div>
+        <p class="block-para" style="margin-top:1rem;color:var(--ink-2)">Core outcome: a stronger online presence that makes it easier for customers to understand and contact the business.</p>
+      </div>
+      <div class="prd-block">
+        <p class="spec-block-h"><span>5.2 · AI Agents</span><span class="spec-tag">NEXT</span></p>
+        <p class="block-para">AI-powered systems that assist businesses with customer enquiry handling, lead qualification, information retrieval, internal workflows, and repetitive communication.</p>
+        <p class="block-para" style="margin-top:.8rem">Exact productization is developed through client conversations and validated problems.</p>
+        <p class="spec-block-h" style="margin-top:1.6rem"><span>5.3 · Business Automation</span><span class="spec-tag">GROWTH</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">·</span><p>Lead capture and follow-up workflows</p></li>
+          <li><span class="prd-n">·</span><p>Form-to-database pipelines and notifications</p></li>
+          <li><span class="prd-n">·</span><p>CRM-related and internal task automation</p></li>
+        </div>
+      </div>
+      <div class="prd-block" style="grid-column:1/-1">
+        <p class="spec-block-h"><span>5.4 · Content &amp; Video Editing</span><span class="spec-tag">RECURRING POTENTIAL</span></p>
+        <div class="prd-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+          <li><span class="prd-n">·</span><p>Reel editing</p></li>
+          <li><span class="prd-n">·</span><p>Captions and hashtags</p></li>
+          <li><span class="prd-n">·</span><p>Content support</p></li>
+          <li><span class="prd-n">·</span><p>Content strategy</p></li>
+        </div>
+        <p class="block-para" style="margin-top:.8rem;color:var(--ink-2)">A monthly editing plan may become a recurring-revenue offer.</p>
+      </div>
+    </div>
+    <div class="prd-block" style="margin-top:2rem">
+      <p class="spec-block-h"><span>Pricing</span><span class="spec-tag">POSITIONING</span></p>
+      <p class="block-para">Early discussions have included approximately <strong>₹3,000–₹10,000</strong> per engagement.</p>
+      <p class="block-para">Pricing should eventually rest on client value, scope, complexity, business size, revenue opportunity, and ongoing maintenance or support.</p>
+      <p class="block-para" style="color:var(--accent);font-family:var(--mono)">CONSTRAINT: NEVER PERMANENTLY POSITION ZENVAR AS THE CHEAPEST PROVIDER.</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 TEAM ============ -->
+  <section class="sec" id="team">
+    <div class="sec-num" aria-hidden="true">04</div>
+    <div class="sec-head">
+      <h2 class="sec-title wipe">Team &amp; Roles</h2>
+      <span class="head-note">~6+ MEMBERS · OWNERSHIP OVER VAGUENESS</span>
+    </div>
+    <table class="prd-table">
+      <thead>
+        <tr><th>MEMBER</th><th>ROLE</th><th>RESPONSIBILITY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="spec-tag" style="color:var(--accent)">HEMANATHAN</span></td><td>Founder / CEO</td><td>Leadership, sales, management, customer acquisition, business direction, coordinating outcomes</td></tr>
+        <tr><td><span class="spec-tag" style="color:var(--accent)">LALITH</span></td><td>Tech Lead / CTO-style</td><td>Tech leadership, AI mastery, technical direction</td></tr>
+        <tr><td><span class="spec-tag" style="color:var(--accent)">DARMIGAN</span></td><td>Technology</td><td>Technology, automation, coding</td></tr>
+        <tr><td><span class="spec-tag" style="color:var(--accent)">NOEL</span></td><td>Sales</td><td>Sales, outreach</td></tr>
+        <tr><td><span class="spec-tag" style="color:var(--accent)">SHANJAY</span></td><td>Sales</td><td>Sales, outreach</td></tr>
+        <tr><td><span class="spec-tag" style="color:var(--accent)">HARI</span></td><td>Content</td><td>Content creation, editing</td></tr>
+        <tr><td><span class="spec-tag" style="color:var(--accent)">CHARVESH</span></td><td>Content &amp; Marketing</td><td>Content creation, marketing</td></tr>
+      </tbody>
+    </table>
+    <p class="note" style="margin-top:1rem">Future contributors previously mentioned include Shreyan (editor) and Subham. Responsibilities will be clarified as the business develops.</p>
+
+    <div class="prd-block" style="margin-top:2.4rem">
+      <p class="spec-block-h"><span>Operating Principle for Beginners</span><span class="spec-tag">O · T · M · D · R</span></p>
+      <p class="block-para">The team is largely made up of beginners. Leadership should not give vague tasks like "get clients." Instead, the operating structure is:</p>
+      <div class="prd-grid" style="margin-top:1rem;gap:1.5rem">
+        <div class="prd-list">
+          <li><span class="prd-n">O</span><p><strong>Outcome</strong> — Build a list of 50 suitable potential clients</p></li>
+          <li><span class="prd-n">T</span><p><strong>Task</strong> — Find businesses matching the ideal customer profile</p></li>
+          <li><span class="prd-n">M</span><p><strong>Method</strong> — Google Maps, Google Search, Instagram, directories, local networking, referrals</p></li>
+          <li><span class="prd-n">D</span><p><strong>Deliverable</strong> — Spreadsheet: business name, industry, location, website, contact info, decision-maker, why they may need Zenvar</p></li>
+          <li><span class="prd-n">R</span><p><strong>Review</strong> — Team lead checks quality, gives feedback</p></li>
+        </div>
+        <div class="prd-block" style="border:none;background:var(--paper-2);margin-bottom:0">
+          <p class="rm-tag">DEADLINE</p>
+          <p class="rm-text">Specified by the team lead for every task.</p>
+          <p class="rm-tag" style="margin-top:1rem">OBJECTIVE</p>
+          <p class="rm-text">Not to micromanage forever — provide structure early, then gradually increase member ownership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 PIPELINE ============ -->
+  <section class="sec" id="pipeline">
+    <div class="sec-num" aria-hidden="true">05</div>
+    <div class="sec-head">
+      <h2 class="sec-title wipe">Acquisition &amp; Sales Pipeline</h2>
+      <span class="head-note">FROM LEAD TO CLOSED CLIENT</span>
+    </div>
+    <div class="prd-grid">
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Lead Generation</span><span class="spec-tag">SOURCES</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">01</span><p>Google Maps and Google Search</p></li>
+          <li><span class="prd-n">02</span><p>Instagram and local business directories</p></li>
+          <li><span class="prd-n">03</span><p>LinkedIn where relevant, referrals, personal networks</p></li>
+          <li><span class="prd-n">04</span><p>Direct outreach and local observation</p></li>
+        </div>
+        <p class="spec-block-h" style="margin-top:1.6rem"><span>Qualification</span><span class="spec-tag">GATE</span></p>
+        <p class="block-para">Evaluate business size, digital presence, website quality, clear business problem, ability to pay, and reachability of the decision-maker.</p>
+      </div>
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Outreach</span><span class="spec-tag">CHANNELS</span></p>
+        <p class="block-para">Email, phone, WhatsApp, Instagram, and in-person networking where appropriate.</p>
+        <div class="qt" style="margin-top:1.2rem">
+          <p>The outreach goal is not to explain every technical feature. The first objective is to start a conversation about a relevant business problem.</p>
+        </div>
+      </div>
+    </div>
+    <div class="prd-block prd-block-full" style="grid-column:1/-1">
+      <p class="spec-block-h"><span>Suggested Sales Flow</span><span class="spec-tag">PIPELINE</span></p>
+      <ol class="proc" style="margin-left:0">
+        <li class="step"><span class="step-n">STAGE 01</span><p>Lead research</p></li>
+        <li class="step"><span class="step-n">STAGE 02</span><p>Qualification</p></li>
+        <li class="step"><span class="step-n">STAGE 03</span><p>Personalized outreach</p></li>
+        <li class="step"><span class="step-n">STAGE 04</span><p>Conversation</p></li>
+        <li class="step"><span class="step-n">STAGE 05</span><p>Discovery of business problem</p></li>
+        <li class="step"><span class="step-n">STAGE 06</span><p>Proposal and offer</p></li>
+        <li class="step"><span class="step-n">STAGE 07</span><p>Follow-up, close, onboarding</p></li>
+        <li class="step"><span class="step-n">STAGE 08</span><p>Delivery</p></li>
+        <li class="step"><span class="step-n">STAGE 09</span><p>Testimonial, referral, upsell</p></li>
+      </ol>
+    </div>
+    <div class="prd-block" style="grid-column:1/-1">
+      <p class="spec-block-h"><span>Discovery Framework</span><span class="spec-tag">SELL OUTCOMES, NOT FEATURES</span></p>
+      <div class="qt" style="margin-top:.4rem">
+        <p>Instead of "we build websites with five pages," prefer: "we help your business create a professional online presence that makes it easier for potential customers to understand your services and contact you."</p>
+      </div>
+      <p class="block-para" style="margin-top:1.2rem">Before pitching, understand: what the business does, who its customers are, how customers currently find it, whether the website generates leads, what repetitive processes consume time, what communication bottlenecks exist, and what business outcome the client wants.</p>
+    </div>
+  </section>
+
+  <!-- ============ 06 DELIVERY ============ -->
+  <section class="sec" id="delivery">
+    <div class="sec-num" aria-hidden="true">06</div>
+    <div class="sec-head">
+      <h2 class="sec-title wipe">Delivery Workflow</h2>
+      <span class="head-note">SIX PHASES · DISCOVERY TO REFERRAL</span>
+    </div>
+    <div class="prd-block prd-block-full" style="grid-column:1/-1">
+      <ol class="proc" style="margin-left:0">
+        <li class="step"><span class="step-n">PHASE 01</span><p><strong>Discovery</strong> — business, customers, goals, existing digital presence, required features</p></li>
+        <li class="step"><span class="step-n">PHASE 02</span><p><strong>Proposal</strong> — scope, deliverables, timeline, price, responsibilities</p></li>
+        <li class="step"><span class="step-n">PHASE 03</span><p><strong>Production</strong> — website design, development, copy, automation setup, AI configuration, content</p></li>
+        <li class="step"><span class="step-n">PHASE 04</span><p><strong>Quality assurance</strong> — mobile responsiveness, links, forms, loading, usability, client requirements</p></li>
+        <li class="step"><span class="step-n">PHASE 05</span><p><strong>Delivery</strong> — present work, collect feedback, make agreed revisions, launch or hand over</p></li>
+        <li class="step"><span class="step-n">PHASE 06</span><p><strong>Post-delivery</strong> — ask for testimonial, request referral, identify upsell, offer maintenance</p></li>
+      </ol>
+    </div>
+    <div class="prd-grid">
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Internal Business Systems</span><span class="spec-tag">FOUNDER BOTTLENECK</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">S</span><p><strong>Sales</strong> — lead database, qualification criteria, outreach and follow-up tracking, pipeline stages</p></li>
+          <li><span class="prd-n">D</span><p><strong>Delivery</strong> — client brief, scope document, project checklist, quality checklist, delivery checklist</p></li>
+          <li><span class="prd-n">K</span><p><strong>Knowledge</strong> — how to generate leads, research businesses, run outreach, build websites, handle clients, and technical solutions</p></li>
+          <li><span class="prd-n">M</span><p><strong>Management</strong> — tasks, owners, deadlines, outcomes, bottlenecks</p></li>
+        </div>
+      </div>
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Technology Direction</span><span class="spec-tag">FLEXIBLE</span></p>
+        <p class="block-para">Base44, Firebase, n8n, Make.com, Claude, Qwen Coder, Ollama, AI APIs, and Stripe / PayPal / GPay for payments.</p>
+        <p class="block-para" style="margin-top:.8rem">Technology choices remain flexible — the objective is solving client problems efficiently, not technology for its own sake.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 ROADMAP ============ -->
+  <section class="sec" id="roadmap">
+    <div class="sec-num" aria-hidden="true">07</div>
+    <div class="sec-head">
+      <h2 class="sec-title wipe">Roadmap, Metrics &amp; Principles</h2>
+      <span class="head-note">90-DAY PLAN · LONG-TERM DIRECTION</span>
+    </div>
+    <div class="prd-grid">
+      <div class="prd-block">
+        <p class="spec-block-h"><span>90-Day Direction</span><span class="spec-tag">SPRINT</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">01–30</span><p>Define ideal customer profile, research 100+ businesses, create sample work, set up lead tracker, begin outreach, learn sales conversations</p></li>
+          <li><span class="prd-n">31–60</span><p>Improve outreach, close initial clients, deliver projects, document lessons, collect testimonials</p></li>
+          <li><span class="prd-n">61–90</span><p>Improve pricing, standardize delivery, create SOPs, build portfolio, explore automation and AI upsells, identify the best-performing market</p></li>
+        </div>
+        <p class="spec-block-h" style="margin-top:1.6rem"><span>Key Metrics</span><span class="spec-tag">MEASURE</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">S</span><p><strong>Sales</strong> — leads researched, qualified, outreach sent, responses, calls booked, proposals sent, clients closed, revenue</p></li>
+          <li><span class="prd-n">D</span><p><strong>Delivery</strong> — completion time, revision count, client satisfaction, testimonials</p></li>
+          <li><span class="prd-n">B</span><p><strong>Health</strong> — monthly revenue, recurring revenue, retention, average project value, referral rate</p></li>
+        </div>
+      </div>
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Long-Term Roadmap</span><span class="spec-tag">EVOLVE</span></p>
+        <ol class="road">
+          <li><span class="road-n">1</span><div><h4>Websites</h4><p>Digital presence</p></div></li>
+          <li><span class="road-n">2</span><div><h4>Lead Systems</h4><p>Repeatable lead generation and sales</p></div></li>
+          <li><span class="road-n">3</span><div><h4>Automation</h4><p>Automation services</p></div></li>
+          <li><span class="road-n">4</span><div><h4>AI Agents</h4><p>Advanced business systems</p></div></li>
+          <li><span class="road-n">5</span><div><h4>Productized</h4><p>Recurring services, scalable systems</p></div></li>
+          <li><span class="road-n">6</span><div><h4>Proprietary</h4><p>Software products or proprietary AI</p></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="prd-block" style="grid-column:1/-1">
+      <p class="spec-block-h"><span>Core Principles</span><span class="spec-tag">GROUND RULES</span></p>
+      <div class="prd-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        <li><span class="prd-n">·</span><p>Sell outcomes, not random features</p></li>
+        <li><span class="prd-n">·</span><p>Talk to the market before assuming</p></li>
+        <li><span class="prd-n">·</span><p>Start simple and improve</p></li>
+        <li><span class="prd-n">·</span><p>Build capability before scaling</p></li>
+        <li><span class="prd-n">·</span><p>Document what works</p></li>
+        <li><span class="prd-n">·</span><p>Give ownership but provide training</p></li>
+        <li><span class="prd-n">·</span><p>Prioritize client value and delivery quality</p></li>
+        <li><span class="prd-n">·</span><p>Reduce founder dependency via systems</p></li>
+        <li><span class="prd-n">·</span><p>Use AI as leverage, not empty hype</p></li>
+      </div>
+    </div>
+    <div class="prd-grid">
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Go-To-Market</span><span class="spec-tag">PHASES</span></p>
+        <ol class="proc" style="margin-left:0">
+          <li class="step"><span class="step-n">01</span><p>Learn the market — ask businesses how they get customers and what causes operational headaches before assuming needs</p></li>
+          <li class="step"><span class="step-n">02</span><p>Choose a clear offer — website development, easy to understand and demonstrate</p></li>
+          <li class="step"><span class="step-n">03</span><p>Build proof — samples, case studies, before/after, testimonials</p></li>
+          <li class="step"><span class="step-n">04</span><p>Systematize outreach into repeatable processes</p></li>
+          <li class="step"><span class="step-n">05</span><p>Expand — websites, automation, AI agents, recurring services, larger value</p></li>
+        </ol>
+      </div>
+      <div class="prd-block">
+        <p class="spec-block-h"><span>Risks &amp; Mitigation</span><span class="spec-tag">GUARDRAILS</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">R</span><p><strong>Team inexperience</strong> — clear SOPs, training, smaller projects, reviews</p></li>
+          <li><span class="prd-n">R</span><p><strong>Selling before capability</strong> — never promise features the team cannot deliver</p></li>
+          <li><span class="prd-n">R</span><p><strong>Cheap positioning</strong> — focus on business value and proof</p></li>
+          <li><span class="prd-n">R</span><p><strong>Founder bottleneck</strong> — document processes, train owners, delegate outcomes</p></li>
+          <li><span class="prd-n">R</span><p><strong>No clear niche</strong> — start broad, track responses, narrow on evidence</p></li>
+        </div>
+        <p class="spec-block-h" style="margin-top:1.6rem"><span>Strategic Priorities</span><span class="spec-tag">NOW</span></p>
+        <div class="prd-list">
+          <li><span class="prd-n">01</span><p>Identify good clients and build a reliable lead process</p></li>
+          <li><span class="prd-n">02</span><p>Learn outreach and sales conversations</p></li>
+          <li><span class="prd-n">03</span><p>Close initial clients and deliver strong work</p></li>
+          <li><span class="prd-n">04</span><p>Collect proof, testimonials, repeatable systems, build capability</p></li>
+        </div>
+      </div>
+    </div>
+    <div class="prd-block prd-block-full" style="grid-column:1/-1">
+      <p class="spec-block-h"><span>Positioning Drafts</span><span class="spec-tag">ONE-LINERS</span></p>
+      <div class="qt" style="margin-top:.2rem">
+        <p>Option 1: Zenvar helps growing businesses improve their digital presence and operations through websites, AI, and automation.</p>
+        <p style="margin-top:1rem">Option 2: Zenvar builds websites and intelligent systems that help businesses attract customers and save time.</p>
+        <p style="margin-top:1rem">Option 3: Zenvar is an AI-powered digital growth company helping businesses look better, operate smarter, and grow faster.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="role-nav-footer">
+    <a class="rn-btn" href="index.html">← TOA-01 OPERATING AGREEMENT</a>
+    <a class="rn-btn all" href="#overview">PRD-01 TOP</a>
+    <a class="rn-btn" href="index.html#parts">TOA-01 PARTS LIST →</a>
+  </nav>
+</main>
+
+<footer class="foot-block">
+  <div class="fb-left">
+    <svg class="wheel sm" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="5" fill="currentColor"/><path d="M32 5v20M32 39v20M5 32h20M39 32h20M13.7 13.7l14.1 14.1M36.2 36.2l14.1 14.1M50.3 13.7L36.2 27.8M27.8 36.2L13.7 50.3" stroke="currentColor" stroke-width="1.6"/></svg>
+    <div>
+      <p class="fb-co">ZENVAR</p>
+      <p class="fb-meta">PRODUCT REQUIREMENTS · PRD-01 · REV 1.0</p>
+    </div>
+  </div>
+  <p class="fb-joke">DO NOT SCALE THIS PRODUCT. VALIDATE IT FIRST.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
