@@ -85,7 +85,10 @@
     if (!text || !text.trim()) return;
 
     // Inline identity capture regardless of mode.
-    var m = text.match(/^\s*I['’]?m\s+([A-Za-z]+)\s*$/i);
+    // Tolerant: strips surrounding quotes (straight + curly), accepts
+    // "I'm <name>" / "I am <name>", and doesn't demand the message be exact.
+    var idText = String(text || "").replace(/^[\s"“”‘’']+|[\s"“”‘’']+$/g, "");
+    var m = idText.match(/^I['’]?m\s+([A-Za-z]+)/i) || idText.match(/^I\s+am\s+([A-Za-z]+)/i);
     if (m) {
       var cand = A.findRole(m[1]);
       memberName = cand ? cand.member : null;

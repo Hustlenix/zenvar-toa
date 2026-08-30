@@ -72,8 +72,21 @@
     "a","an","the","of","to","for","and","or","is","are","was","were","do","does",
     "did","what","what's","whats","how","i","my","me","we","our","it","its","in",
     "on","at","that","this","these","those","with","from","by","about","can","cant",
-    "should","tell","me","who","why","when","where","which","have","has","be","m","s","re"
+    "should","tell","me","who","why","when","where","which","have","has","be","m","s","re",
+    "than","then","also","just","like","you","your","they","them","he","she","his","her",
+    "there","here","one","would","could","get","got","want","need","being","been"
   ]);
+
+  // Escape a string for safe use inside a RegExp.
+  function escRe(s) {
+    return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  // Whole-word match helper: returns true if any whole word in `q` equals `word`.
+  function hasWholeWord(q, word) {
+    if (!word) return false;
+    return new RegExp("\\b" + escRe(word) + "\\b").test(q);
+  }
 
   function tokens(text) {
     var t = String(text || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").split(" ");
@@ -126,19 +139,37 @@
   function findRole(nameOrQuery) {
     var q = String(nameOrQuery || "").toLowerCase();
     var roles = CORPUS.roles || [];
+
+    // 1) Exact member-name lookup (draftReport / direct "hemanathan" calls).
     for (var i = 0; i < roles.length; i++) {
       if (roles[i].member.toLowerCase() === q) return roles[i];
     }
-    // fuzzy: match by first name inside query, or by title keyword
-    var best = null, bestScore = 0;
+
+    // 2) Whole-word member name present anywhere in the query.
+    //    "what does Noel do?", "Noel's role", "I'm Hemanathan" → that role.
+    //    Whole-word \b guards stop a filler like "than" matching inside "He..manathan".
     for (var j = 0; j < roles.length; j++) {
-      var hay = roles[j].member.toLowerCase() + " " + roles[j].title.toLowerCase();
-      var sc = 0;
-      var qt = tokens(q);
-      for (var k = 0; k < qt.length; k++) if (hay.indexOf(qt[k]) !== -1) sc++;
-      if (sc > bestScore) { bestScore = sc; best = roles[j]; }
+      if (hasWholeWord(q, roles[j].member.toLowerCase())) return roles[j];
     }
-    return bestScore > 0 ? best : null;
+
+    // 3) Role-title intent: only fire when the message BOTH reads like a question
+    //    about a person/role AND contains a whole-word title keyword (founder, ceo, …).
+    //    This keeps arbitrary text ("worse than a basic SLM") from latching onto a role.
+    var personIntent = /\b(who|what|which|does|is|do|role|job|member|name|responsib|handl|run|head)\b/.test(q);
+    if (personIntent && q.length <= 100) {
+      var best = null, bestScore = 0;
+      for (var k = 0; k < roles.length; k++) {
+        var titleWords = roles[k].title.toLowerCase().split(/[^a-z0-9]+/);
+        var sc = 0;
+        for (var t = 0; t < titleWords.length; t++) {
+          if (hasWholeWord(q, titleWords[t])) sc++;
+        }
+        if (sc > bestScore) { bestScore = sc; best = roles[k]; }
+      }
+      if (best && bestScore >= 1) return best;
+    }
+
+    return null;
   }
 
   function roleSummary(role) {
