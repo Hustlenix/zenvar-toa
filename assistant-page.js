@@ -65,6 +65,30 @@
     if (sourceTag) sourceTag.textContent = label || "STANDBY";
   }
 
+  // Swap the body + source of the LAST assistant message in place. Used to
+  // upgrade a "Thinking…" model_pending message once the model relay answers.
+  function updateLastAssistant(text, source) {
+    var msgs = logEl.querySelectorAll(".assist-msg.a");
+    if (!msgs.length) return false;
+    var last = msgs[msgs.length - 1];
+    var body = last.querySelector(".m-body");
+    var meta = last.querySelector(".m-meta");
+    if (body) {
+      body.innerHTML = "";
+      var rawLines = String(text || "").split("\n");
+      var block = document.createElement("div");
+      rawLines.forEach(function (line, i) {
+        if (i > 0) block.appendChild(document.createElement("br"));
+        block.insertAdjacentHTML("beforeend", renderInline(line));
+      });
+      body.appendChild(block);
+    }
+    if (meta && source) meta.textContent = "ASSISTANT" + " · " + source;
+    setSource(source || "STANDBY");
+    logEl.scrollTop = logEl.scrollHeight;
+    return true;
+  }
+
   function setModes(m) {
     mode = m;
     modeEls.forEach(function (el) {
@@ -151,6 +175,14 @@
     e.preventDefault();
     handle(textEl.value);
     textEl.focus();
+  });
+
+  // Model relay answers land here and upgrade the last "Thinking…" message.
+  window.addEventListener("zenvar-model-answer", function (ev) {
+    var d = ev.detail;
+    if (d && d.answer && d.answer.text) {
+      updateLastAssistant(d.answer.text, d.answer.source || "MODEL");
+    }
   });
 
   // Welcome message

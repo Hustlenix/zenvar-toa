@@ -52,6 +52,22 @@ There are **4 short steps**. You can do steps 1 and 2 in about 5 minutes; step 3
 
 After the keys are in `supabase-config.js`, I commit and push to the `main` branch. The site's automatic GitHub Pages publishing kicks in, and within a minute or two the live site is behind the new sign-in gate.
 
+## Step 5 — Turn on the AI brain (free-tier model)
+
+The GENERAL assistant (ask it anything) talks to a free AI model through an Edge Function on this same Supabase project. The model's key lives **only** on Supabase's servers — it is never in the website, which is what keeps it safe. TOA questions and report drafting still use the instant built-in answers and never call the model, so they stay fast.
+
+1. **Get a free model key.** Go to **https://console.groq.com** (free sign-in). Click **API Keys** → **Create API Key**, give it a name like `zenvar`, and copy the key (starts with `gsk_`). Store it somewhere safe.
+2. **Give the key to the Edge Function** (I run these 2 short commands for you once you give me the key):
+   ```
+   supabase secrets set MODEL_API_KEY=<your-gsk-key>
+   supabase functions deploy assist-model
+   ```
+   That's it — no code changes needed. The Edge Function already exists in `supabase/functions/assist-model/`.
+3. After that, any member can open the assistant, switch it to **GENERAL**, and it answers through the model. It shows "Thinking…" for a second, then the model's answer appears.
+4. If you ever want to change models, tell me and I'll set two more secrets (`MODEL_API_BASE` and `MODEL_NAME`) — nothing else changes.
+
+> **Free-tier honesty:** Groq's free plan has a usage limit (some requests per minute). If you ever hit it, the assistant briefly shows a message that the relay couldn't be reached, and the instant TOA/role/report answers keep working. No cost, no card.
+
 ---
 
 ## How to verify it worked

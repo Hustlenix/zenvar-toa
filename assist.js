@@ -339,12 +339,18 @@
   // ─────────────────────────────────────────────
   // PUBLIC API
   // ─────────────────────────────────────────────
+  // The deterministic grounded engine, captured so a model decorator can
+  // delegate TOA/report to it. Kept on the public API so model-provider.js
+  // never has to re-implement grounding.
+  var deterministicRespond = new DeterministicProvider().respond;
+
   window.ZENVAR_ASSIST = {
     esc: esc,
     memberForEmail: memberForEmail,
     findRole: findRole,
     roleSummary: roleSummary,
     setProvider: setProvider,
+    get deterministicRespond() { return deterministicRespond; },
     respond: function (ctx) {
       var c = ctx || {};
       var mode = c.mode || "toa";
