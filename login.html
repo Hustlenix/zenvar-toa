@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOA-01 · AUTHENTICATION REQUIRED</title>
+<meta name="description" content="Restricted area. Zenvar team members only. Sign in to view the Team Operating Agreement.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script src="supabase-client.js"></script>
+</head>
+<body class="login-page">
+<a class="skip" href="#login">Skip to sign in</a>
+
+<div class="grain" aria-hidden="true"></div>
+<span class="regmark rm-tl" aria-hidden="true"></span>
+<span class="regmark rm-tr" aria-hidden="true"></span>
+<span class="regmark rm-bl" aria-hidden="true"></span>
+<span class="regmark rm-br" aria-hidden="true"></span>
+
+<aside class="rail" aria-hidden="true">
+  <span>ZENVAR · RESTRICTED ACCESS · TEAM MEMBERS ONLY · AUTH-01</span>
+</aside>
+
+<main id="login" class="login-wrap">
+  <header class="titleblock wipe in done">
+    <div class="tb-row tb-main">
+      <div class="tb-cell tb-id">
+        <svg class="wheel" viewBox="0 0 64 64" role="img" aria-label="Zenvar wheel mark"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="5" fill="currentColor"/><path d="M32 5v20M32 39v20M5 32h20M39 32h20M13.7 13.7l14.1 14.1M36.2 36.2l14.1 14.1M50.3 13.7L36.2 27.8M27.8 36.2L13.7 50.3" stroke="currentColor" stroke-width="1.6"/><circle cx="32" cy="32" r="15" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4"/></svg>
+        <div>
+          <p class="tb-co">ZENVAR</p>
+          <p class="tb-sub">OPERATIONS DIVISION</p>
+        </div>
+      </div>
+      <h1 class="tb-cell tb-title">AUTHENTICATION<br>REQUIRED</h1>
+    </div>
+    <div class="tb-row tb-purpose">
+      <p>This drawing is a restricted internal document. Access is limited to the eight registered members of the Zenvar operating agreement. Identify yourself to continue.</p>
+      <span class="stamp" id="stamp">RESTRICTED · AUTH-01</span>
+    </div>
+  </header>
+
+  <section class="login-block">
+    <div class="spec-block-h">
+      <span>Member Sign-In</span>
+      <span class="spec-tag">DRAWING ACCESS CONTROL</span>
+    </div>
+
+    <form id="login-form" class="login-form" novalidate>
+      <div class="field">
+        <label for="email">Email <span class="req">(registered member email)</span></label>
+        <input id="email" name="email" type="email" autocomplete="username" required placeholder="name@zenvar.co" autofocus>
+      </div>
+
+      <div class="field">
+        <label for="password">Password <span class="req">(issued credentials)</span></label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="••••••••••••">
+      </div>
+
+      <p id="auth-error" class="auth-error" role="alert" hidden>Unable to sign in. Check the email and password, then try again.</p>
+
+      <div class="login-actions">
+        <button type="submit" class="btn btn-primary" id="login-submit">SIGN IN <span aria-hidden="true">→</span></button>
+        <span class="auth-note" id="auth-status">IDENTIFY YOURSELF TO CONTINUE</span>
+      </div>
+    </form>
+
+    <p class="auth-foot">No account? Contact the TOA-01 issuer (Hemanathan) to be registered. Access is provisioned per member — it is not self-service.</p>
+  </section>
+</main>
+
+<footer class="foot-block">
+  <div class="fb-left">
+    <svg class="wheel sm" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="5" fill="currentColor"/><path d="M32 5v20M32 39v20M5 32h20M39 32h20M13.7 13.7l14.1 14.1M36.2 36.2l14.1 14.1M50.3 13.7L36.2 27.8M27.8 36.2L13.7 50.3" stroke="currentColor" stroke-width="1.6"/></svg>
+    <div>
+      <p class="fb-co">ZENVAR</p>
+      <p class="fb-meta">TEAM OPERATING AGREEMENT · TOA-01 · AUTH CONTROL DRAWING</p>
+    </div>
+  </div>
+  <p class="fb-joke">NO ENTRY WITHOUT A CLOSED LOOP. SIGN IN. READ. CLOSE THE LOOP.</p>
+</footer>
+
+<script src="login.js"></script>
+</body>
+</html>

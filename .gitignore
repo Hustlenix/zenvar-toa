@@ -1,0 +1,4 @@
+# Never commit the admin service key or local env / deps
+admin/.env
+admin/node_modules/
+node_modules/

@@ -9,6 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script src="supabase-client.js"></script>
+<script src="auth.js"></script>
 <style>
   /* Minor, PRD-page-only helpers built on the existing design tokens. */
   .prd-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,4vw,3.8rem);margin-top:2.5rem}
@@ -63,6 +67,7 @@
     <a href="#roadmap">07</a>
   </div>
   <a class="nav-sign" href="index.html#approvals">TOA-01 INDEX</a>
+  <button class="nav-auth" data-auth-signout="" type="button">SIGN OUT</button>
 </nav>
 
 <main id="main" class="wrap" style="max-width:1180px">
