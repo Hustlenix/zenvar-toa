@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOA-01 Â· ASSIST Â· Zenvar Member Assistant</title>
+<meta name="description" content="Zenvar member assistant: ask the TOA, draft your weekly report, or get general help. Members only.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script src="supabase-client.js"></script>
+<script src="auth.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<span class="regmark rm-tl" aria-hidden="true"></span>
+<span class="regmark rm-tr" aria-hidden="true"></span>
+<span class="regmark rm-bl" aria-hidden="true"></span>
+<span class="regmark rm-br" aria-hidden="true"></span>
+
+<aside class="rail" aria-hidden="true">
+  <span>ZENVAR Â· TOA-01 Â· MEMBER ASSISTANT Â· ASSIST-01 Â· CLOSED LOOP</span>
+</aside>
+
+<nav class="plate-nav" aria-label="Sections">
+  <a class="nav-doc" href="index.html">â† TOA-01 INDEX</a>
+  <div class="nav-nums">
+    <a href="index.html#checks">01</a>
+    <a href="index.html#parts">02</a>
+    <a href="index.html#procedure">03</a>
+    <a href="index.html#inspection">04</a>
+    <a href="index.html#culture">05</a>
+    <a href="index.html#approvals">06</a>
+  </div>
+  <a class="nav-sign" href="prd.html">PRD-01</a>
+  <a class="nav-assist" href="assistant.html">ASSIST</a>
+  <button class="nav-auth" data-auth-signout="" type="button">SIGN OUT</button>
+</nav>
+
+<main id="main" class="wrap" style="max-width:1180px">
+  <header class="role-hero wipe in done">
+    <div class="role-crumb">
+      <a href="index.html">TOA-01</a> / <span>Member Assistant</span>
+    </div>
+    <div class="role-title-grid">
+      <div class="role-name-block">
+        <p class="role-item-tag">ASSIST-01 Â· MEMBERS ONLY</p>
+        <h1 class="role-name">Assistant</h1>
+        <p class="role-full-title">Ask the TOA Â· Draft your report Â· General help</p>
+      </div>
+      <div class="role-metric-highlight">
+        <span class="rm-k">Grounded in</span>
+        <span class="rm-v">TOA-01 + all 8 roles</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODE SWITCHER -->
+  <section class="spec-block assist-section">
+    <h2 class="spec-block-h">
+      <span>MODE</span>
+      <span class="spec-tag">PICK ONE</span>
+    </h2>
+    <div class="assist-modes" role="tablist" aria-label="Assistant mode">
+      <button class="assist-mode" data-mode="toa" role="tab" aria-selected="true" type="button">
+        <span class="am-num">01</span>
+        <span class="am-name">TOA Q&amp;A</span>
+        <span class="am-desc">Answer from the agreement ends check, gauges, roles</span>
+      </button>
+      <button class="assist-mode" data-mode="report" role="tab" aria-selected="false" type="button">
+        <span class="am-num">02</span>
+        <span class="am-name">REPORT DRAFT</span>
+        <span class="am-desc">Build your weekly update, numbers over feelings</span>
+      </button>
+      <button class="assist-mode" data-mode="general" role="tab" aria-selected="false" type="button">
+        <span class="am-num">03</span>
+        <span class="am-name">GENERAL</span>
+        <span class="am-desc">Anything else â€” assistant on demand</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- CHAT -->
+  <section class="spec-block assist-section assist-chat">
+    <h2 class="spec-block-h">
+      <span>CONSOLE</span>
+      <span class="spec-tag" id="assist-source-tag">STANDBY</span>
+    </h2>
+    <div class="assist-log" id="assist-log" role="log" aria-live="polite" aria-label="Conversation"></div>
+    <form class="assist-input" id="assist-form" novalidate>
+      <label class="sr-only" for="assist-text">Message the assistant</label>
+      <input id="assist-text" name="assist-text" type="text" autocomplete="off"
+             placeholder="e.g. What are the operating checks? / Draft my report / What does Noel do?"
+             autofocus>
+      <button type="submit" class="btn btn-primary" id="assist-send">SEND â†’</button>
+    </form>
+    <p class="assist-foot">Deterministic engine now Â· model provider plugs in behind the same interface (no change to this page). Member-gated via the TOA-01 sign-in.</p>
+  </section>
+</main>
+
+<footer class="foot-block">
+  <div class="fb-left">
+    <svg class="wheel sm" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="5" fill="currentColor"/><path d="M32 5v20M32 39v20M5 32h20M39 32h20M13.7 13.7l14.1 14.1M36.2 36.2l14.1 14.1M50.3 13.7L36.2 27.8M27.8 36.2L13.7 50.3" stroke="currentColor" stroke-width="1.6"/></svg>
+    <div>
+      <p class="fb-co">ZENVAR</p>
+      <p class="fb-meta">TEAM OPERATING AGREEMENT Â· TOA-01 Â· ASSIST-01 Â· MEMBERS ONLY</p>
+    </div>
+  </div>
+  <p class="fb-joke">DO NOT SCALE THIS AGREEMENT. ASK IT, THEN CLOSE THE LOOP.</p>
+</footer>
+
+<script src="corpus.js"></script>
+<script src="assist.js"></script>
+<script src="assistant-page.js"></script>
+</body>
+</html>
